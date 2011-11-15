@@ -28,8 +28,8 @@ MINIFY_BUNDLES = {
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.
     'examples',
+    'accounts',
 ]
-
 
 # Because Jinja2 is the default template loader, add any non-Jinja templated
 # apps here:
@@ -54,3 +54,6 @@ JINGO_EXCLUDE_APPS = [
 # ]
 
 LOGGING = dict(loggers=dict(playdoh = {'level': logging.DEBUG}))
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = '/'
