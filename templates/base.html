@@ -5,10 +5,17 @@
     <title>{% block page_title %}playdoh examples{% endblock %}</title>
 
     {% block site_css %}
-      {{ css('example_css') }}
+      {{ css('main_css') }}
     {% endblock %}
   </head>
   <body data-mobile-cookie="{{ settings.MOBILE_COOKIE }}">
+    <div style="width: 100%; text-align: right;">
+      {% if request.user.is_authenticated() %}
+        <a href="{{ url('accounts.logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url('accounts.login') }}">Login</a> | <a href="{{ url('accounts.register') }}">Register</a>
+      {% endif %}
+    </div>
     {% block content %}{% endblock %}
 
     <div id="footer">
@@ -19,7 +26,7 @@
     </div>
 
     {% block site_js %}
-      {{ js('example_js') }}
+      {{ js('main_js') }}
     {% endblock %}
   </body>
 </html>

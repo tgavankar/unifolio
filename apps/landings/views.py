@@ -1,5 +1,3 @@
-"""Example views. Feel free to delete this app."""
-
 from django import http
 from django.shortcuts import render
 
@@ -12,7 +10,7 @@ from session_csrf import anonymous_csrf
 log = commonware.log.getLogger('playdoh')
 
 
-@mobile_template('examples/{mobile/}home.html')
+@mobile_template('landings/{mobile/}home.html')
 def home(request, template=None):
     """Main example view."""
     data = {}  # You'd add data here that you're sending to the template.
@@ -33,4 +31,5 @@ def bleach_test(request):
         if bleachme:
             data['bleached'] = bleach.clean(bleachme, tags=allowed_tags)
 
-    return render(request, 'examples/bleach.html', data)
+    return render(request, 'landings/bleach.html', data)
+

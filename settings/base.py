@@ -8,18 +8,18 @@ from funfactory.settings_base import *
 # and js files that can be bundled together by the minify app.
 MINIFY_BUNDLES = {
     'css': {
-        'example_css': (
-            'css/examples/main.css',
+        'main_css': (
+            'css/main.css',
         ),
-        'example_mobile_css': (
-            'css/examples/mobile.css',
+        'mobile_css': (
+            'css/mobile.css',
         ),
     },
     'js': {
-        'example_js': (
-            'js/examples/libs/jquery-1.4.4.min.js',
-            'js/examples/libs/jquery.cookie.js',
-            'js/examples/init.js',
+        'main_js': (
+            'js/libs/jquery-1.4.4.min.js',
+            'js/libs/jquery.cookie.js',
+            'js/init.js',
         ),
     }
 }
@@ -27,8 +27,10 @@ MINIFY_BUNDLES = {
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.
-    'examples',
+    'landings',
+    'portfolio',
     'accounts',
+    'upload',
 ]
 
 # Because Jinja2 is the default template loader, add any non-Jinja templated
@@ -57,3 +59,13 @@ LOGGING = dict(loggers=dict(playdoh = {'level': logging.DEBUG}))
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/'
+
+GALLERY_IMAGE_PATH = 'uploads/gallery/images/'
+GALLERY_IMAGE_THUMBNAIL_PATH = 'uploads/gallery/images/thumbnails/'
+GALLERY_VIDEO_PATH = 'uploads/gallery/videos/'
+GALLERY_VIDEO_THUMBNAIL_PATH = 'uploads/gallery/videos/thumbnails/'
+
+MAX_FILENAME_LENGTH = 200
+MAX_FILEPATH_LENGTH = 250
+
+DEFAULT_FILE_STORAGE = 'upload.storage.RenameFileStorage'

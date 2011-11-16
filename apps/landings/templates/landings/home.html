@@ -1,4 +1,4 @@
-{% extends "example_base.html" %}
+{% extends "landings/base.html" %}
 
 {% block content %}
 <h1>
@@ -15,7 +15,7 @@
   {% trans docs_url='http://playdoh.rtfd.org/' %}
   <a href="{{ docs_url }}">Learn you some Playdoh</a> and then go build
   something <strong>awesome</strong>.
-  {% endtrans %}  
+  {% endtrans %}
 </p>
 <p>
   {% trans langs=LANGUAGES.items() %}
@@ -25,6 +25,6 @@
 </p>
 <p>Some more examples:</p>
 <ul>
-  <li><a href="{{ url('examples.bleach') }}">Input sanitization with Bleach</a></li>
+  <li><a href="{{ url('landings.bleach') }}">Input sanitization with Bleach</a></li>
 </ul>
 {% endblock %}
