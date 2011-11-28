@@ -1,4 +1,20 @@
+from random import choice
+
 import jingo
+
+from portfolio.models import Image
+
+@jingo.register.function
+def datetime(d):
+    return d.strftime("%B %d, %Y")
+
+@jingo.register.function
+def random_image_from_gallery(g):
+    img = list(Image.objects.filter(gallery=g))
+    if len(img) > 0:
+        return choice(img).file.file
+    return ""
+
 
 @jingo.register.function
 def upload_js():

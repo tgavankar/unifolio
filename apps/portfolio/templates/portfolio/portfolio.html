@@ -1,0 +1,43 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div id="galleries">
+
+                <h2 class="page-title">{{ user.username }}'s Portfolio</h2>
+                {% if request.user == user %}
+                <h4><a href="{{ url('portfolio.newgallery') }}">Create a New Gallery</a></h4><h5>Share this Portfolio: <input type="text" onfocus="this.select()" size="50" value="{{ request.build_absolute_uri() }}"></h5>
+                <div class="post-line"></div>
+                {% endif %}
+
+
+
+
+        {% if entries %}
+        {% for e in entries %}
+            <div class="gallery">
+                    <div class="gallery-img-bg">
+                        <a href=""><img src="{{ MEDIA_URL }}{{ random_image_from_gallery(e) }}" alt="" /></a>
+                    </div><!--end post-img-bg -->
+                    <div class="gallery-content">
+                        <h2><a href="{{ url('portfolio.viewgallery', e.id) }}">{{ e.title }}</a></h2>
+                        <div class="meta">
+                            {{ datetime(e.created) }}
+                        </div><!--end meta-->
+                        <p>{{ e.description }}</p>
+                        {% if request.user == e.creator %}
+                        <p><a href="{{ url('portfolio.editgallery', e.id) }}">Edit Gallery</a></p>
+                        {% if not e.visibility %}<p>This gallery is <strong>not publicly visible</strong>.</p>{% endif %}
+                        {% endif %}
+                        <a class="view-gallery-button" href="{{ url('portfolio.viewgallery', e.id) }}">View Gallery</a>
+                    </div><!--end gallery-content-->
+                </div><!--end gallery-->
+            <div class="post-line"></div>
+        {% endfor %}
+
+        {% else %}
+            No portfolios found!
+        {% endif %}
+            </div><!--end galleries-->
+
+{% endblock content %}

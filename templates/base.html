@@ -1,33 +1,63 @@
 <!DOCTYPE html>
-<html LANG="{{ LANG }}" dir="{{ DIR }}">
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <title>{% block page_title %}playdoh examples{% endblock %}</title>
+<html lang="en">
 
+    <head>
+
+        <meta charset="utf-8">
+        <title>{% block page_title %}Unifolio{% endblock %}</title>
     {% block site_css %}
       {{ css('main_css') }}
     {% endblock %}
-  </head>
-  <body data-mobile-cookie="{{ settings.MOBILE_COOKIE }}">
-    <div style="width: 100%; text-align: right;">
-      {% if request.user.is_authenticated() %}
-        Welcome, {{ request.user.username }} | <a href="{{ url('accounts.logout') }}">Logout</a>
-      {% else %}
-        <a href="{{ url('accounts.login') }}">Login</a> | <a href="{{ url('accounts.register') }}">Register</a>
-      {% endif %}
-    </div>
+    </head>
+
+    <body>
+        <div id="wrap">
+            <div id="loginfloater">{% if request.user.is_authenticated() %}
+                Welcome, {{ request.user.username }} | <a href="{{ url('accounts.logout') }}">Logout</a>
+                {% else %}
+                <a href="{{ url('accounts.login') }}">Login</a> | <a href="{{ url('accounts.register') }}">Register</a>
+                {% endif %}
+            </div>
+
+            <div id="header">
+
+                <h1><a href="">Unifolio</a></h1>
+                <h2>Sharing for students.</h2>
+
+            </div><!--end header-->
+
+            <ul id="nav">
+
+                <li><a href="{{ url('landings.home') }}" class="first">Home</a></li> <!-- current first indicates page you are on -->
+                {% if request.user.is_authenticated() %}
+                <li>
+                    <a href="{{ url('portfolio.viewportfolio', request.user) }}">Portfolio</a>
+                    <ul>
+                        <li><a href="{{ url('portfolio.viewportfolio', request.user) }}">View All Galleries</a></li>
+                        <li><a href="{{ url('portfolio.newgallery') }}">Create a Gallery</a></li>
+                        <li><a href="{{ url('upload-new') }}">Upload Images</a></li>
+                        <li><a href="{{ url('portfolio.unlinked') }}">View Unlinked Images</a></li>
+                    </ul>
+                </li><!-- ONLY WHEN LOGGED IN -->
+                <li><a href="{{ url('upload-new') }}">Upload</a></li>
+                {% else %}
+                <li><a href="{{ url('accounts.login') }}">Login</a></li>
+                {% endif %}
+
+                <!--<li><a href="#">About Us</a></li>-->
+
+
+            </ul><!--end nav-->
+
+            <div class="line"></div>
     {% block content %}{% endblock %}
 
-    <div id="footer">
-      {# These links will add/remove cookies. See JavaScript. #}
-      <a class="desktop-link" href="">{{ _('View Desktop Site') }}</a>
-      &nbsp;|&nbsp;
-      <a class="mobile-link" href="">{{ _('View Mobile Site') }}</a>
-    </div>
-
+                <div id="footer">
+                    <div class="line"></div>
+                    <p class="copyright">Copyright &copy; 2011 / Unifolio / All Rights Reserved</p>
+                </div><!--end footer-->
     {% block site_js %}
       {{ js('main_js') }}
     {% endblock %}
-  </body>
+    </body>
 </html>
-

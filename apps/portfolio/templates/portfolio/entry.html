@@ -1,9 +1,38 @@
 {% extends "portfolio/base.html" %}
 
 {% block content %}
-<h1>
-    <a href="/">{{ _('View Entry') }}</a>
-</h1>
-    <h2>{{ id }}</h2>
+<div id="project">
+                <h2 class="page-title">Gallery Entry</h2>
+
+                <div id="screenshots">
+
+                    <div class="screenshot">
+                        <div class="portfolio-img-bg">
+                            <a href="{{ MEDIA_URL }}{{ e.file.file }}" target="_blank"><img src="{{ MEDIA_URL }}{{ e.file.file }}" alt="" /></a>
+                        </div><!--end portfolio-img-bg-->
+                    </div><!--end screenshot-->
+
+                </div><!--end screenshots-->
+
+                <div id="project-content">
+                    <h3>Title: <span class="grey">{{ e.title }}</span></h3>
+                    <h3>Date: <span class="grey">{{ datetime(e.created) }}</span></h3>
+                    <!--<h3 class="completion">Completion Date: <span class="grey">6th April 2011</span></h3>-->
+                    {% if request.user == e.creator %}
+                    <a href="{{ url('portfolio.editimage', e.id) }}">Edit Entry</a>
+                    {% if not e.visibility %}<p>This image is <strong>not publicly visibile</strong>.</p>{% endif %}
+                    {% endif %}
+                    <h3 class="portfolio-title">Description</h3>
+                    <p>{{ e.description }}</p>
+
+                {% if e.gallery %}
+                    <a href="{{ url('portfolio.viewgallery', e.gallery.id) }}">Back to Gallery</a>
+                {% else %}
+                    <a href="{{ url('portfolio.unlinked') }}">Back to Unlinked Images</a>
+                {% endif %}
+                </div><!--end project-content-->
+
+
+            </div><!--end project-->
 
 {% endblock %}

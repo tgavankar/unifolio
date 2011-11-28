@@ -19,6 +19,8 @@ class Gallery(models.Model):
     description = models.TextField(max_length=10000)
     visibility = models.BooleanField(default=True, null=False)
 
+    def __unicode__(self):
+        return '%s' % (self.title)
 
 class Media(models.Model):
     """Generic model for media"""
@@ -80,23 +82,18 @@ class GalleryForm(forms.ModelForm):
         model = Gallery
         fields = ('title', 'description', 'visibility', )
 
-    def save(self, creator, **kwargs):
+    def save(self, creator, isedit, **kwargs):
         # Throws a TypeError if somebody passes in a commit kwarg:
         new_gal = super(GalleryForm, self).save(commit=False, **kwargs)
 
         new_gal.updated_by = creator
-        new_gal.creator = creator
+        if not isedit:
+            new_gal.creator = creator
         new_gal.save()
         return new_gal
 
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
+        fields = ('title', 'description', 'gallery', 'created', 'visibility', )
 
-    def save(self, creator, **kwargs):
-        # Throws a TypeError if somebody passes in a commit kwarg:
-        new_gal = super(ImageForm, self).save(commit=False, **kwargs)
-
-        new_gal.creator = creator
-        new_gal.save()
-        return new_gal

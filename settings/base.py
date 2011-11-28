@@ -10,6 +10,7 @@ MINIFY_BUNDLES = {
     'css': {
         'main_css': (
             'css/main.css',
+            'css/libs/style.css',
         ),
         'mobile_css': (
             'css/mobile.css',
@@ -24,6 +25,7 @@ MINIFY_BUNDLES = {
         'main_js': (
             'js/libs/jquery-1.6.2.min.js',
             'js/libs/jquery.cookie.js',
+            'js/libs/hover.js',
             'js/init.js',
         ),
         'upload': (

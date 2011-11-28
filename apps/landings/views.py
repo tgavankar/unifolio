@@ -6,6 +6,7 @@ import commonware
 from mobility.decorators import mobile_template
 from session_csrf import anonymous_csrf
 
+from portfolio.models import Image
 
 log = commonware.log.getLogger('playdoh')
 
@@ -14,7 +15,10 @@ log = commonware.log.getLogger('playdoh')
 def home(request, template=None):
     """Main example view."""
     data = {}  # You'd add data here that you're sending to the template.
-    log.debug("I'm alive!")
+    r = Image.objects.filter(gallery__isnull=False).order_by('-updated')[:3]
+    data['recent'] = []
+    for e in r:
+        data['recent'].append(e)
     return render(request, template, data)
 
 

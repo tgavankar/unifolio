@@ -1,30 +1,29 @@
 {% extends "landings/base.html" %}
 
 {% block content %}
-<h1>
-    <a href="/">{{ _('Hello world') }}</a>
-</h1>
+<div id="frontpage">
 
-{# L10n: This is a localizer comment #}
-{% if request.MOBILE %}
-  <p>{{ _('This is a <em>test view</em> for mobile browsers.') }}</p>
-{% else %}
-  <p>{{ _('This is a <em>test view</em> for desktop browsers.') }}</p>
-{% endif %}
-<p>
-  {% trans docs_url='http://playdoh.rtfd.org/' %}
-  <a href="{{ docs_url }}">Learn you some Playdoh</a> and then go build
-  something <strong>awesome</strong>.
-  {% endtrans %}
-</p>
-<p>
-  {% trans langs=LANGUAGES.items() %}
-    Current locale: {{ LANG }}.<br>
-    Available locales: {{ langs }}.
-  {% endtrans %}
-</p>
-<p>Some more examples:</p>
-<ul>
-  <li><a href="{{ url('landings.bleach') }}">Input sanitization with Bleach</a></li>
-</ul>
+                <img class="featured-text" src="media/img/featured-text.jpg" alt="Unifolio. A place for sharing." />
+
+                <div class="line"></div>
+
+                <div id="recent-uploads">
+
+                    <h3>Recent Uploads</h3>
+
+                    {% for e in recent %}
+                    <div class="featured-project-bg{% if loop.first %} first{% endif %}">
+                        <a href="{{ url('portfolio.viewgallery', e.gallery.id) }}"><img src="{{ MEDIA_URL }}{{ e.file.file }}"></a>
+                    </div>
+                    {% endfor %}
+
+                </div><!--end recent-uploads-->
+
+                <div class="line"></div>
+
+                <div id="content">
+
+
+                </div><!--end content-->
+            </div><!--end frontpage-->
 {% endblock %}
