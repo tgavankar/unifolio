@@ -5,5 +5,16 @@
     <a href="/">{{ _('View Gallery') }}</a>
 </h1>
     <h2>{{ id }}</h2>
+    {% if entries %}
+        <ul>
+        {% for e in entries %}
+            <li><img src="{{ MEDIA_URL }}{{ e.file.file }}"> | {{ e.title }} | {{ e.created }} </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        No entries found!
+    {% endif %}
+
+
 
 {% endblock %}

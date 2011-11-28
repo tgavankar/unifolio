@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from portfolio.utils import auto_delete_files
+from upload.models import UploadedFile
 
 
 class Gallery(models.Model):
@@ -24,8 +25,7 @@ class Media(models.Model):
     title = models.CharField(max_length=255, db_index=True)
     created = models.DateTimeField(default=datetime.now, db_index=True)
     updated = models.DateTimeField(default=datetime.now, db_index=True)
-    updated_by = models.ForeignKey(User, null=True)
-    gallery = models.ForeignKey(Gallery, null=False, db_index=True)
+    gallery = models.ForeignKey(Gallery, null=True, db_index=True)
     description = models.TextField(max_length=10000)
     visibility = models.BooleanField(default=True, null=False, db_index=True)
 
@@ -40,11 +40,7 @@ class Media(models.Model):
 @auto_delete_files
 class Image(Media):
     creator = models.ForeignKey(User, related_name='gallery_images')
-    file = models.ImageField(upload_to=settings.GALLERY_IMAGE_PATH,
-                             max_length=settings.MAX_FILEPATH_LENGTH)
-    thumbnail = models.ImageField(
-        upload_to=settings.GALLERY_IMAGE_THUMBNAIL_PATH, null=True,
-        max_length=settings.MAX_FILEPATH_LENGTH)
+    file = models.ForeignKey(UploadedFile)
 
     def get_absolute_url(self):
         return reverse('portfolio.entry', args=[self.id])
@@ -89,6 +85,18 @@ class GalleryForm(forms.ModelForm):
         new_gal = super(GalleryForm, self).save(commit=False, **kwargs)
 
         new_gal.updated_by = creator
+        new_gal.creator = creator
+        new_gal.save()
+        return new_gal
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+
+    def save(self, creator, **kwargs):
+        # Throws a TypeError if somebody passes in a commit kwarg:
+        new_gal = super(ImageForm, self).save(commit=False, **kwargs)
+
         new_gal.creator = creator
         new_gal.save()
         return new_gal

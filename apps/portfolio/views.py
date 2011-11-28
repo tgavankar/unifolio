@@ -10,7 +10,7 @@ import jingo
 from mobility.decorators import mobile_template
 from session_csrf import anonymous_csrf
 
-from portfolio.models import GalleryForm
+from portfolio.models import GalleryForm, Image
 
 log = commonware.log.getLogger('playdoh')
 
@@ -22,8 +22,9 @@ def view_entry(request, entry_id):
 
 
 def view_gallery(request, gallery_id):
+    e = list(Image.objects.filter(gallery=gallery_id))
     data = {}
-    data['id'] = gallery_id
+    data['entries'] = e
     return render(request, 'portfolio/gallery.html', data)
 
 

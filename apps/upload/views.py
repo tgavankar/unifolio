@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 
 from django.conf import settings
 
+from portfolio.models import Image
+
 def response_mimetype(request):
     if "application/json" in request.META['HTTP_ACCEPT']:
         return "application/json"
@@ -18,10 +20,15 @@ class PictureCreateView(CreateView):
 
     def form_valid(self, form):
         self.object = form.save()
-        print "******"
-        print self.object.__dict__
-        print "******"
         f = self.request.FILES.get('file')
+
+        imgform = Image()
+        imgform.title = f.name
+        imgform.creator = self.request.user
+        imgform.file = self.object
+
+        imgform.save()
+
         data = [{'name': f.name,
         'url': settings.MEDIA_URL + self.object.file.__str__(),
         'thumbnail_url': settings.MEDIA_URL + self.object.file.__str__(),
