@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -78,3 +79,16 @@ class Video(Media):
         return self.thumbnail.url if self.thumbnail else progress_url
 
 
+class GalleryForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ('title', 'description', 'visibility', )
+
+    def save(self, creator, **kwargs):
+        # Throws a TypeError if somebody passes in a commit kwarg:
+        new_gal = super(GalleryForm, self).save(commit=False, **kwargs)
+
+        new_gal.updated_by = creator
+        new_gal.creator = creator
+        new_gal.save()
+        return new_gal

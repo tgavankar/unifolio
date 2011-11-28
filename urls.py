@@ -8,7 +8,9 @@ from django.conf.urls.defaults import *
 urlpatterns = patterns('',
     # Example:
     (r'', include('landings.urls')),
-    (r'portfolio/', include('portfolio.urls')),
+    (r'^portfolio/', include('portfolio.urls')),
+    (r'^upload/', include('upload.urls')),
+
     (r'', include('accounts.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

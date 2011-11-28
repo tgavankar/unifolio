@@ -1,0 +1,17 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+    <h1>{{ _('Create a New Gallery') }}</h1>
+    <div id="document-form">
+      {{ gallery_form.errors }}
+      <form action="{{ url('portfolio.newgallery') }}" method="post">
+        {{ csrf() }}
+        <ul>
+          {% for field in gallery_form.visible_fields() %}
+            <li><label for="{{ field.auto_id }}">{{ field.label }}</label> {{ field }}</li>
+          {% endfor %}
+        </ul>
+        <input type="submit" value="Create Gallery" />
+      </form>
+    </div>
+{% endblock %}

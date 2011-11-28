@@ -1,0 +1,33 @@
+{% extends "upload/base.html" %}
+
+{% block site_css %}
+  {{ css('main_css') }}
+  {{ css('upload') }}
+{% endblock %}
+
+{% block content %}
+<div id="fileupload">
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="fileupload-buttonbar">
+            {{ csrf() }}
+            <label class="fileinput-button">
+                <span>Add files...</span>
+                <input type="file" name="file" multiple>
+            </label>
+            <button type="submit" class="start">Start upload</button>
+            <button type="reset" class="cancel">Cancel upload</button>
+            <button type="button" class="delete">Delete files</button>
+        </div>
+    </form>
+    <div class="fileupload-content">
+        <table class="files"></table>
+        <div class="fileupload-progressbar"></div>
+    </div>
+</div>
+{{ upload_js()|safe }}
+{% endblock %}
+
+{% block site_js %}
+  {{ js('main_js') }}
+  {{ js('upload') }}
+{% endblock %}

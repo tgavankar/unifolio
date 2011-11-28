@@ -11,7 +11,7 @@
   <body data-mobile-cookie="{{ settings.MOBILE_COOKIE }}">
     <div style="width: 100%; text-align: right;">
       {% if request.user.is_authenticated() %}
-        <a href="{{ url('accounts.logout') }}">Logout</a>
+        Welcome, {{ request.user.username }} | <a href="{{ url('accounts.logout') }}">Logout</a>
       {% else %}
         <a href="{{ url('accounts.login') }}">Login</a> | <a href="{{ url('accounts.register') }}">Register</a>
       {% endif %}

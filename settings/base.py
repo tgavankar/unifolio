@@ -14,12 +14,25 @@ MINIFY_BUNDLES = {
         'mobile_css': (
             'css/mobile.css',
         ),
+        'upload': (
+            'css/libs/jqueryui/1.8.14/themes/base/jquery.ui.all.css',
+            'css/libs/jquery.fileupload-ui.css',
+            'css/libs/thumbnail-scaling.css',
+        ),
     },
     'js': {
         'main_js': (
-            'js/libs/jquery-1.4.4.min.js',
+            'js/libs/jquery-1.6.2.min.js',
             'js/libs/jquery.cookie.js',
             'js/init.js',
+        ),
+        'upload': (
+            'js/libs/jquery-ui-1.8.14.custom.min.js',
+            'js/libs/jquery.templates/beta1/jquery.tmpl.min.js',
+            'js/libs/jquery.iframe-transport.js',
+            'js/libs/jquery.fileupload.js',
+            'js/libs/jquery.fileupload-ui.js',
+            'js/libs/application.js',
         ),
     }
 }
@@ -64,6 +77,8 @@ GALLERY_IMAGE_PATH = 'uploads/gallery/images/'
 GALLERY_IMAGE_THUMBNAIL_PATH = 'uploads/gallery/images/thumbnails/'
 GALLERY_VIDEO_PATH = 'uploads/gallery/videos/'
 GALLERY_VIDEO_THUMBNAIL_PATH = 'uploads/gallery/videos/thumbnails/'
+
+STATIC_URL = '/media/upload_static/'
 
 MAX_FILENAME_LENGTH = 200
 MAX_FILEPATH_LENGTH = 250
