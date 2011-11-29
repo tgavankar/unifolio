@@ -15,7 +15,7 @@ log = commonware.log.getLogger('playdoh')
 def home(request, template=None):
     """Main example view."""
     data = {}  # You'd add data here that you're sending to the template.
-    r = Image.objects.filter(gallery__isnull=False).order_by('-updated')[:3]
+    r = Image.objects.filter(gallery__isnull=False, visibility=True).order_by('-updated')[:3]
     data['recent'] = []
     for e in r:
         data['recent'].append(e)

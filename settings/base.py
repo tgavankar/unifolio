@@ -46,6 +46,10 @@ INSTALLED_APPS = list(INSTALLED_APPS) + [
     'portfolio',
     'accounts',
     'upload',
+    'django.contrib.admin',
+    'django.contrib.sessions',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
 ]
 
 # Because Jinja2 is the default template loader, add any non-Jinja templated

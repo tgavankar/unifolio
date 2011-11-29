@@ -22,6 +22,7 @@ class Gallery(models.Model):
     def __unicode__(self):
         return '%s' % (self.title)
 
+
 class Media(models.Model):
     """Generic model for media"""
     title = models.CharField(max_length=255, db_index=True)
