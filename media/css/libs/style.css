@@ -55,7 +55,7 @@ p { margin: 0 0 15px 0; }
 #nav li a.first { padding-left: 0; }
 
 /* -- Sub Menu -- */
-#nav li ul { display: none; position: absolute; left: 25px; top: 110%; padding: 0; margin: 0; border: 1px #ddd solid; background: #eee !important; }
+#nav li ul { display: none; position: absolute; left: 25px; top: 110%; padding: 0; margin: 0; border: 1px #ddd solid; background: #eee !important; z-index: 99999}
 #nav li ul li:hover { background: #ff7200; }
 #nav li ul li a:hover { color: #fff; }
 #nav li:hover > ul { display: block; }
