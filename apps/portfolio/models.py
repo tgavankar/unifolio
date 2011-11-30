@@ -28,7 +28,7 @@ class Media(models.Model):
     title = models.CharField(max_length=255, db_index=True)
     created = models.DateTimeField(default=datetime.now, db_index=True)
     updated = models.DateTimeField(default=datetime.now, db_index=True)
-    gallery = models.ForeignKey(Gallery, null=True, db_index=True)
+    gallery = models.ForeignKey(Gallery, null=True, db_index=True, blank=True)
     description = models.TextField(max_length=10000)
     visibility = models.BooleanField(default=True, null=False, db_index=True)
 
