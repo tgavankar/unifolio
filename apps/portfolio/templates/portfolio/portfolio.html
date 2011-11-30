@@ -17,7 +17,7 @@
         {% for e in entries %}
             <div class="gallery">
                     <div class="gallery-img-bg">
-                        <a href=""><img src="{{ MEDIA_URL }}{{ random_image_from_gallery(e) }}" alt="" /></a>
+                        <a class="table-center" href="{{ url('portfolio.viewgallery', e.id) }}"><img src="{{ MEDIA_URL }}{{ random_image_from_gallery(e) }}" alt="" /></a>
                     </div><!--end post-img-bg -->
                     <div class="gallery-content">
                         <h2><a href="{{ url('portfolio.viewgallery', e.id) }}">{{ e.title }}</a></h2>

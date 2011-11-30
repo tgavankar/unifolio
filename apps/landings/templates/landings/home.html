@@ -13,7 +13,7 @@
 
                     {% for e in recent %}
                     <div class="featured-project-bg{% if loop.first %} first{% endif %}">
-                        <a href="{{ url('portfolio.viewgallery', e.gallery.id) }}"><img src="{{ MEDIA_URL }}{{ e.file.file }}"></a>
+                        <a class="table-center" href="{{ url('portfolio.viewgallery', e.gallery.id) }}"><img src="{{ MEDIA_URL }}{{ e.file.file }}"></a>
                     </div>
                     {% endfor %}
 

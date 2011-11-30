@@ -16,7 +16,7 @@
                     {% endif %}
                     <a class="more-details" href="{{ url('portfolio.viewentry', e.id) }}">More Details &raquo;</a>
                     <div class="gallery-img-bg">
-                        <a href="#"><img src="{{ MEDIA_URL }}{{ e.file.file }}" alt="" /> </a>
+                        <a href="{{ MEDIA_URL }}{{ e.file.file }}" target="_blank" class="table-center"><img src="{{ MEDIA_URL }}{{ e.file.file }}" alt="" /> </a>
                     </div><!--end post-img-bg -->
 
             </div><!--end gallery-item-->

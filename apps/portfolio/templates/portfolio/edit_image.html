@@ -4,7 +4,9 @@
     <h1>{{ _('Edit an Image') }}</h1>
     <div id="document-form">
       {{ gallery_form.errors }}
-    <img src="{{ MEDIA_URL }}{{ imgpath }}" height=390 width=450>
+    <br />
+    <p>Editing:</p>
+    <a href="{{ MEDIA_URL }}{{ imgpath }}" target="_blank"><img src="{{ MEDIA_URL }}{{ imgpath }}" class="scaledimage"></a>
       <form class="styleform" action="{{ url('portfolio.editimage', id) }}" method="post">
         {{ csrf() }}
         <ul>

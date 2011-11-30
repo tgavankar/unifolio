@@ -41,6 +41,8 @@ em { font-style: italic; }
 p { margin: 0 0 15px 0; }
 .page-title { margin: 0 0 28px 0; font-size: 34px; }
 
+.scaledimage { max-height: 298px; max-width: 448px; }
+
 /*--------------*/
 /* -- Header -- */
 /*--------------*/
@@ -86,9 +88,9 @@ p { margin: 0 0 15px 0; }
 #frontpage .featured-text { margin: 0 0 40px 0; }
 #frontpage #recent-uploads { margin: 0 0 40px 0; }
 #frontpage #recent-uploads h3 { font-size: 32px; color: #444; margin: 50px 0 30px 0; letter-spacing: -1px; }
-#frontpage #recent-uploads .featured-project-bg { float: left; background: url(../../img/featured-project-bg.jpg) no-repeat; width: 310px; height: 310px; margin: 0 0 50px 17px; }
+#frontpage #recent-uploads .featured-project-bg { float: left; background: url(../../img/featured-project-bg.jpg) no-repeat; width: 304px; height: 304px; padding-right: 6px; padding-bottom: 6px; margin: 0 0 50px 17px; display: table; }
 #frontpage #recent-uploads .featured-project-bg.first { margin-left: 0px; }
-#frontpage #recent-uploads img { margin: 2px auto; display: block; max-height: 300px; max-width: 300px; }
+#frontpage #recent-uploads img { margin: 2px auto; display: block; max-height: 298px; max-width: 298px; }
 
 #frontpage #features { float: left; margin: 36px 32px 0 0; font-size: 12px; }
 #frontpage #features h4 { font-size: 28px; color: #444; margin: 10px 0 35px 0; letter-spacing: -1px; }
@@ -113,9 +115,9 @@ p { margin: 0 0 15px 0; }
 .gallery, .article { float: left; padding: 0 0 50px 0; width: 960px; }
 .gallery-content, .article-content { width: 500px; margin: -37px 0 0 0; }
 .gallery h2.page-title, .article h2.page-title { float: left; margin: 50px 0 40px 0; }
-.gallery-img-bg, .article-img-bg { float: left; background: url(../../img/post-img-bg.jpg) no-repeat; width: 210px; height: 210px; margin: 0 50px 0 0; }
+.gallery-img-bg, .article-img-bg { float: left; background: url(../../img/post-img-bg.jpg) no-repeat; width: 204px; height: 204px; padding-right: 6px; padding-bottom: 6px; display: table; margin: 0 50px 0 0; }
 .gallery-content, .article-content { float: left; }
-.gallery a img, .article a img { border: none; margin: 2px auto; display: block; max-width: 200px; max-height: 200px; }
+.gallery a img, .article a img { border: none; margin: 2px auto; display: block; max-width: 198px; max-height: 198px; }
 .gallery h2 a, .article h2 a { font-size: 30px; line-height: 35px }
 .gallery .meta, .article .meta { font-size: 24px; color: #888888; margin: -10px 0 20px 0; }
 .gallery .meta a, .article .meta a { color: #888888; }
@@ -143,7 +145,7 @@ a.newer-posts:hover { background: url(../../img/newer-button-orange-hover.jpg) n
 /*-----------------*/
 #portfolio { margin: 50px 0 0 0; font-size: 16px; }
 #portfolio .page-title { margin: 0 0 40px 0; }
-#portfolio .portfolio-item .portfolio-img-bg { background: url(../../img/portfolio-img-bg.jpg) no-repeat; width: 460px; height: 310px; margin: 28px 0 0 0; }
+#portfolio .portfolio-item .portfolio-img-bg { background: url(../../img/portfolio-img-bg.jpg) no-repeat; width: 454px; height: 304px; padding-bottom: 6px; padding-right: 6px; display: table; margin: 28px 0 0 0; }
 #portfolio .portfolio-item { float: left; width: 460px; padding-left: 40px; margin: 0 0 50px 0; }
 #portfolio .portfolio-item.first { float: left; width: 460px; padding-left: 0px; }
 #portfolio .portfolio-item .project-name { float: left; margin: 0 0 0 2px;  }
@@ -155,12 +157,13 @@ a.newer-posts:hover { background: url(../../img/newer-button-orange-hover.jpg) n
 /*-----------------*/
 #gallery { margin: 50px 0 0 0; font-size: 16px; }
 #gallery .page-title { margin: 0 0 40px 0; }
-#gallery .gallery-item .gallery-img-bg { background: url(../../img/gallery-img-bg.jpg) no-repeat; width: 460px; height: 310px; margin: 28px 0 0 0; }
+#gallery .gallery-item .gallery-img-bg { background: url(../../img/gallery-img-bg.jpg) no-repeat; width: 454px; height: 304px; padding-bottom: 6px; padding-right: 6px; margin: 28px 0 0 0; display: table; }
 #gallery .gallery-item { float: left; width: 460px; padding-left: 40px; margin: 0 0 50px 0; }
 #gallery .gallery-item.first { float: left; width: 460px; padding-left: 0px; }
 #gallery .gallery-item .project-name { float: left; margin: 0 0 0 2px;  }
 #gallery .gallery-item .more-details { float: right; margin: 0 6px 0 0 }
-#gallery .gallery-item img { margin: 2px auto; display: block; max-width: 450px; max-height: 300px;}
+.table-center { display: table-cell; vertical-align: middle; }
+#gallery .gallery-item img { margin: 2px auto; display: block; max-width: 448px; max-height: 298px;  }
 
 /*---------------*/
 /* -- Project -- */
@@ -168,8 +171,8 @@ a.newer-posts:hover { background: url(../../img/newer-button-orange-hover.jpg) n
 #project { margin: 50px 0 0 0; font-size: 16px; }
 #project h3 { margin: 0 0 8px 0; }
 #project #screenshots { float: right; margin: -20px 0 0 100px; }
-#project .screenshot .portfolio-img-bg { background: url(../../img/portfolio-img-bg.jpg) no-repeat; width: 460px; height: 310px; margin: 28px 0 0 0; }
-#project .screenshot img { margin: 3px auto; display: block; max-width: 460px; max-height: 300px;}
+#project .screenshot .portfolio-img-bg { background: url(../../img/portfolio-img-bg.jpg) no-repeat; width: 454px; height: 304px; padding-bottom: 6px; padding-right: 6px; margin: 28px 0 0 0; display: table; }
+#project .screenshot img { margin: 3px auto; display: block; max-width: 448px; max-height: 298px;}
 #project #project-content { float: left; margin: 6px 0 0 0; width: 400px; font-size: 14px; }
 #project #project-content p { width: 400px; }
 #project #project-content .completion { margin-bottom: 25px; }
