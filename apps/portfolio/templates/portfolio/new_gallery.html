@@ -4,7 +4,7 @@
     <h1>{{ _('Create a New Gallery') }}</h1>
     <div id="document-form">
       {{ gallery_form.errors }}
-      <form action="{{ url('portfolio.newgallery') }}" method="post">
+      <form class="styleform" action="{{ url('portfolio.newgallery') }}" method="post">
         {{ csrf() }}
         <ul>
           {% for field in gallery_form.visible_fields() %}

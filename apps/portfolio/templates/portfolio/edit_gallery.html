@@ -4,7 +4,7 @@
     <h1>{{ _('Edit an Existing Gallery') }}</h1>
     <div id="document-form">
       {{ gallery_form.errors }}
-      <form action="{{ url('portfolio.editgallery', id) }}" method="post">
+      <form class="styleform" action="{{ url('portfolio.editgallery', id) }}" method="post">
         {{ csrf() }}
         <ul>
           {% for field in gallery_form.visible_fields() %}

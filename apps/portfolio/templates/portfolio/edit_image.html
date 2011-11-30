@@ -5,7 +5,7 @@
     <div id="document-form">
       {{ gallery_form.errors }}
     <img src="{{ MEDIA_URL }}{{ imgpath }}" height=390 width=450>
-      <form action="{{ url('portfolio.editimage', id) }}" method="post">
+      <form class="styleform" action="{{ url('portfolio.editimage', id) }}" method="post">
         {{ csrf() }}
         <ul>
           {% for field in gallery_form.visible_fields() %}

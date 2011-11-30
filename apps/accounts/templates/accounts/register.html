@@ -4,7 +4,7 @@
 
 {% block content %}
       <h1>Create an account</h1>
-      <form action="{{ url('accounts.register') }}" method="post">
+      <form class="styleform" action="{{ url('accounts.register') }}" method="post">
         {{ csrf() }}
         {% if form.error_dict %}
           <p class="error">Please correct the errors below.</p>
