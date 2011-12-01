@@ -24,7 +24,22 @@ h4 { font-size: 18px; margin: 20px 0 10px 0; }
 h5 { font-size: 16px; margin: 20px 0 5px 0; }
 h6 { font-size: 14px; margin: 0 0 0 0; }
 form.styleform {margin:20px 10px}
+form.styleform label {
+    width: 100px;
+    float: left;
+}
 form.styleform input {
+    background: -moz-linear-gradient(center top , white, #EEEEEE 1px, white 25px) repeat scroll 0 0 transparent;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 0 8px #F0F0F0;
+    color: #555555;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    margin: 0 0 15px 10px;
+    padding: 15px;
+    width: 250px;
+}
+form.styleform textarea {
     background: -moz-linear-gradient(center top , white, #EEEEEE 1px, white 25px) repeat scroll 0 0 transparent;
     border: 1px solid #E5E5E5;
     box-shadow: 0 0 8px #F0F0F0;
