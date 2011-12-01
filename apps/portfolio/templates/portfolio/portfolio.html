@@ -6,9 +6,10 @@
 
                 <h2 class="page-title">{{ user.username }}'s Portfolio</h2>
                 {% if request.user == user %}
-                <h4><a href="{{ url('portfolio.newgallery') }}">Create a New Gallery</a></h4><h5>Share this Portfolio: <input type="text" onfocus="this.select()" size="50" value="{{ request.build_absolute_uri() }}"></h5>
-                <div class="post-line"></div>
+                <h4><a href="{{ url('portfolio.newgallery') }}">Create a New Gallery</a></h4>
                 {% endif %}
+                <h5>Share this Portfolio: <input type="text" onfocus="this.select()" size="50" value="{{ request.build_absolute_uri() }}"></h5>
+                <div class="post-line"></div>
 
 
 

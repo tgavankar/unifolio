@@ -14,7 +14,8 @@
             <li><label for="{{ field.auto_id }}">{{ field.label }}</label> {{ field }}</li>
           {% endfor %}
         </ul>
-        <input type="submit" value="Save Changes" />
+        <input type="submit" value="Save Changes" /><br />
+        <a href="#" id="delete_item" data-url="{{ url('portfolio.deleteimage', id) }}" data-redirect="{{ url('portfolio.viewportfolio', request.user.username) }}">Delete</a>
       </form>
     </div>
 {% endblock %}

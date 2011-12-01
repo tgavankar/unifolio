@@ -4,6 +4,9 @@
 
             <div id="gallery">
                 <h2 class="page-title">{{ g.creator }}'s Gallery: {{ g.title }}</h2>
+                {% if request.user == user %}
+                <h4><a href="{{ url('portfolio.editgallery', g.id) }}">Edit This Gallery</a></h4>
+                {% endif %}
                 <h5>Share this Portfolio: <input type="text" onfocus="this.select()" size="50" value="{{ request.build_absolute_uri() }}"></h5>
                 <div class="post-line"></div>
     {% if entries %}

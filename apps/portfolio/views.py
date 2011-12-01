@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 
 import bleach
@@ -123,6 +124,7 @@ def edit_image(request, image_id):
                          'id': g.id,
                          'imgpath': g.file.file})
 
+
 @login_required
 def unlinked_images(request):
     e = Image.objects.filter(gallery=None, creator=request.user)
@@ -130,3 +132,30 @@ def unlinked_images(request):
     data = {}
     data['entries'] = list(e)
     return render(request, 'portfolio/unlinked.html', data)
+
+
+@login_required
+@csrf_exempt
+def delete_gallery(request, gallery_id):
+    g = get_object_or_404(Gallery, pk=gallery_id)
+
+    if request.user != g.creator:
+        return http.HttpResponseForbidden()
+
+    g.delete()
+
+    return http.HttpResponse(status=200)
+
+@login_required
+@csrf_exempt
+def delete_image(request, image_id):
+    g = get_object_or_404(Image, pk=image_id)
+
+    if request.user != g.creator:
+        return http.HttpResponseForbidden()
+
+    g.delete()
+
+    return http.HttpResponse(status=200)
+
+
