@@ -9,6 +9,7 @@ from funfactory.settings_base import *
 MINIFY_BUNDLES = {
     'css': {
         'main_css': (
+            'css/libs/jquery.fancybox.css',
             'css/main.css',
             'css/libs/style.css',
         ),
@@ -25,6 +26,9 @@ MINIFY_BUNDLES = {
         'main_js': (
             'js/libs/jquery-1.6.2.min.js',
             'js/libs/jquery.cookie.js',
+            'js/libs/jquery.fancybox/jquery.easing-1.3.pack.js',
+            'js/libs/jquery.fancybox/jquery.mousewheel-3.0.6.pack.js',
+            'js/libs/jquery.fancybox/jquery.fancybox.pack.js?v=2.0.3',
             'js/libs/hover.js',
             'js/init.js',
         ),

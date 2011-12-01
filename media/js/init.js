@@ -31,6 +31,7 @@ $(function() {
          }
     });
 
+    $(".fancybox").fancybox();
 
     if($("#delete_item").length > 0) {
         $("#delete_item").click(function() {
