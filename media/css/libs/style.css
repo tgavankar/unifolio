@@ -38,8 +38,15 @@ html body div#wrap div#gallery div.gallery-item p.project-name b {
     margin: -2px ;
 }
 html body div#wrap div#gallery div.gallery-item a.more-details {
+    float: right;
+    padding-top: 10px;
+}
+a[href="/unifolio/en-US/register/"] {
+    margin-left: 10px;
+}
+html body div#wrap div#gallery div.gallery-item p a {
+    margin: 0 0 0 0;
     float: left;
-    margin:  -12px 0 -20px 0;
 }
 form.styleform input {
     background: -moz-linear-gradient(center top , white, #EEEEEE 1px, white 25px) repeat scroll 0 0 transparent;
