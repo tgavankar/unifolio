@@ -31,11 +31,15 @@ form.styleform label {
 form.styleform select {
     margin: 0 0 10px 10px;
 }
+form.styleform input[type=submit] {
+    margin: 0 0 0 0;
+}
 html body div#wrap div#gallery div.gallery-item p.project-name b {
-    margin: -2px;
+    margin: -2px ;
 }
 html body div#wrap div#gallery div.gallery-item a.more-details {
     float: left;
+    margin:  -12px 0 -20px 0;
 }
 form.styleform input {
     background: -moz-linear-gradient(center top , white, #EEEEEE 1px, white 25px) repeat scroll 0 0 transparent;
