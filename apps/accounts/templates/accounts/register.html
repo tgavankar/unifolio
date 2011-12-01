@@ -6,24 +6,15 @@
       <h1>Create an account</h1>
       <form class="styleform" action="{{ url('accounts.register') }}" method="post">
         {{ csrf() }}
-        {% if form.error_dict %}
-          <p class="error">Please correct the errors below.</p>
-        {% endif %}
 
-        {% if form.username.errors %}
-          {{ form.username.html_error_list }}
-          <br />
-        {% endif %}
+        {{ form.errors }}
+
         <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label> {{ form.username }}
         <br />
-        {% if form.password1.errors %}
-          {{ form.password1.html_error_list }}
-        {% endif %}
+
         <label for="{{ form.password1.auto_id }}">Password:</label>{{ form.password1 }}
         <br />
-        {% if form.password2.errors %}
-          {{ form.password2.html_error_list }}
-        {% endif %}
+
         <label for="{{ form.password2.auto_id }}">Password (again): {{ form.password2 }}
         <br />
         <input type="submit" value="Create the account" />
