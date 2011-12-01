@@ -31,6 +31,11 @@ form.styleform label {
 form.styleform select {
     margin: 0 0 10px 10px;
 }
+#id_password2 {
+    margin-left: 110px;
+    float: left;
+    margin-top: -43px;
+}
 form.styleform input[type=submit] {
     margin: 0 0 0 0;
 }
